@@ -7,7 +7,9 @@ router.get('/', function(req, res, next) {
 });
 
 // danh sach san pham - danh muc
-
+router.get('/danh-muc', function(req, res, next) {
+  res.render('danhmuc', { title: 'Express' });
+});
 // chi tiet san pham
 
 // dang nhap
