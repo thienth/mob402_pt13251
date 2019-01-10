@@ -1,8 +1,15 @@
-/* body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.item{
+  margin-bottom: 20px;
 }
-
-a {
-  color: #00B7FF;
-} */
+.item .card{
+  border: none;
+}
+.item .card-body{
+  padding-left: 3px;
+  padding-right: 3px;
+}
+.ori-price{
+  color: #707070;
+    text-decoration: line-through;
+    font-size: 14px;
+}
