@@ -1,9 +1,23 @@
 var express = require('express');
 var router = express.Router();
+var MongoClient = require('mongodb').MongoClient
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+
+  MongoClient.connect('mongodb://localhost:27017/mob402', function (err, client) {
+    if (err) throw err
+
+    var db = client.db('mob402')
+    
+    db.collection('products').find().toArray(function (err, result) {
+      if (err) throw err
+
+      console.log(result)
+      res.render('index', { title: 'Express', products: result });
+    })
+  })
+  
 });
 
 // danh sach san pham - danh muc
