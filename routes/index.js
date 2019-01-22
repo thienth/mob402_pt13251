@@ -1,24 +1,19 @@
 var express = require('express');
 var router = express.Router();
-var MongoClient = require('mongodb').MongoClient
+var ProductModel = require('../models/Product');
+var CategoryModel = require('../models/Category');
+var Handlebars = require('hbs');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-
-  MongoClient.connect('mongodb://localhost:27017/mob402', function (err, client) {
-    if (err) throw err
-
-    var db = client.db('mob402')
-    
-    db.collection('products').find().toArray(function (err, result) {
-      if (err) throw err
-
-      console.log(result)
-      res.render('index', { title: 'Express', products: result });
-    })
-  })
-  
+  ProductModel.find({})
+      .then((result) => {
+        res.render('index', { title: 'Express', products: result });
+      });
 });
+router.get('/chi-tiet', function(req, res, next){
+  res.render('detail');
+})
 
 // danh sach san pham - danh muc
 router.get('/danh-muc', function(req, res, next) {

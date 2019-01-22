@@ -6,8 +6,9 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
 var app = express();
+var layoutMiddleware = require('./middleware/create_layouts');
+// Thienth - add data to layout
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -19,7 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+app.use('/', layoutMiddleware.layouts, indexRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
