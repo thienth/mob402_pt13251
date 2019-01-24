@@ -8,7 +8,6 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var app = express();
 var layoutMiddleware = require('./middleware/create_layouts');
-// Thienth - add data to layout
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
