@@ -2,17 +2,25 @@ var express = require('express');
 var router = express.Router();
 var ProductModel = require('../models/Product');
 var CategoryModel = require('../models/Category');
-var Handlebars = require('hbs');
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
+  // let query = {
+  //   name: {
+  //       $regex: req.params.keyword,
+  //       $options: "i"
+  //   }
+  // };
   ProductModel.find({})
-      .then((result) => {
-        res.render('index', { title: 'Express', products: result });
+      .then(function(result){
+        res.render('index', {products: result});
       });
 });
-router.get('/chi-tiet', function(req, res, next){
-  res.render('detail');
+router.get('/chi-tiet/:id', function(req, res, next){
+  // res.send(req.params.id);
+  ProductModel.findOne({_id: req.params.id})
+      .then(function(product){
+        res.render('detail', {product: product});
+      });
 })
 
 // danh sach san pham - danh muc

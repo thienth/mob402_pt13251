@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017/mob402');
+mongoose.connect('mongodb://127.0.0.1:27017/mob402', { useNewUrlParser: true });
 let categorySchema = new mongoose.Schema({
     name: String,
     price: Number,
