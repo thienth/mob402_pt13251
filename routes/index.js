@@ -19,13 +19,10 @@ router.get('/chi-tiet/:id', function(req, res, next){
   // res.send(req.params.id);
   ProductModel.findOne({_id: req.params.id})
     .populate('cate_id')
-    .exec((err, cate) => {
-      console.log(cate);
-      res.render('detail', {product: cate});
+    .exec((err, result) => {
+      console.log(result);
+      res.render('detail', {product: result});
     })
-    // .then(function(product){
-    //     
-    //   });
 })
 
 // danh sach san pham - danh muc
