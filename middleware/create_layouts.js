@@ -6,6 +6,7 @@ exports.layouts = async (req, res, next) => {
     resultCategory.map((v,i) => {
         menu += `<a class="dropdown-item" href="/danh-muc/${v._id}">${v.name}</a>`;
     });
+    menu += `<a class="dropdown-item" href="/danh-muc/quan-ly">Quản lý danh mục</a>`;
     Handlebars.registerHelper('mainmenu', function() {
         return menu;
     });

@@ -16,6 +16,6 @@ userSchema.methods.hashPassword = (pwd) => {
 userSchema.methods.verifyPassword = (pwd, hasPwd) => {
     return bcrypt.compareSync(pwd, hasPwd)
 }
-var UserModel = mongoose.model('users', userSchema );
-module.exports = UserModel;
+var User = mongoose.model('users', userSchema );
+module.exports = User;
 

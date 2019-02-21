@@ -6,4 +6,4 @@ let productGallerySchema = new mongoose.Schema({
 
 let ProductGallery = mongoose.model('Cat', schema);
 
-module.exports = Cat;
+module.exports = ProductGallery;

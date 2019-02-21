@@ -9,7 +9,7 @@ let productSchema = new mongoose.Schema({
     galleries: Array,
     cate_id: { type: Schema.Types.ObjectId, ref: 'categories' }
 });
-var ProductModel = module.exports = mongoose.model('products', productSchema );
+var Product = module.exports = mongoose.model('products', productSchema );
 // module.exports.all = () => {
 //     return ProductModel.find({});
 // }
